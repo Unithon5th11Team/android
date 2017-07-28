@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorPrimary">@color/material_white</color>
+    <color name="colorPrimaryDark">@color/material_grey300</color>
+    <color name="colorAccent">@color/black_87</color>
+
+    <color name="black">#FF080808</color>
+
+
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="hard_grey">#e4e5e7</color>
+
+
+    <color name="black_7">#12000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="black_87">#DE000000</color>
+
+    <color name="gray_9E9E9">#FFE9E9E9</color>
+
+
+    <!-- custom color roler-->
+
+    <!-- dialog loading color -->
+    <color name="dialog_color">#A5DC86</color>
+
+
+    <color name="point_424C57">#FF424C57</color>
+    <color name="point_5FA9D0">#FF5FA9D0</color>
+    <color name="point_E47B75">#FFE47B75</color>
+
+
+    <color name="material_grey300">#ffe0e0e0</color>
+    <color name="material_white">#ffffffff</color>
+    <color name="md_white">#ffffffff</color>
+
 </resources>

@@ -1,0 +1,48 @@
+package kth.com.unithon11team.api;
+
+import android.text.TextUtils;
+
+import com.vocketlist.android.roboguice.log.Ln;
+
+import java.io.IOException;
+
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
+
+
+/**
+ * @author kinamare on 2017-07-06.
+ */
+
+public class LoginInterceptor implements Interceptor {
+    private volatile static String mLoginToken;
+
+    public static synchronized void setLoginToken(String token) {
+        mLoginToken = token;
+
+        Ln.i("setLoginToken : " + token);
+    }
+
+    public static String getLoginToken() {
+        if (mLoginToken == null) {
+            return mLoginToken;
+        }
+
+        return new String(mLoginToken);
+    }
+
+    @Override
+    public Response intercept(Chain chain) throws IOException {
+        Request original = chain.request();
+        Request.Builder requestBuilder = original.newBuilder();
+
+        if (TextUtils.isEmpty(mLoginToken) == false) {
+            requestBuilder.header("authorization", "JWT " + mLoginToken);
+            Ln.d("authorization : JWT " + mLoginToken);
+        }
+
+        Request request = requestBuilder.build();
+        return chain.proceed(request);
+    }
+}
