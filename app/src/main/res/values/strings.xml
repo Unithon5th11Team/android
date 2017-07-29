@@ -156,6 +156,9 @@
     <string name="category_horror">호러</string>
     <string name="category_camera">감정 인식</string>
     <string name="empty_fragment_title">글이 없습니다</string>
+    <string name="emotion_title" formatted="false">이 사진의 감정 표현은 %f 로 %s 입니다.</string>
+    <string name="empty_emotion_title">죄송해요 실패 했어요!!</string>
+    <string name="empty_emotion_again">다시 한번 시도해주세요.</string>
 
 
 </resources>

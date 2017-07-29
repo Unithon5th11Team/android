@@ -9,8 +9,8 @@ import java.util.concurrent.TimeUnit;
 public final class Timeout {
     public static final TimeUnit UNIT = TimeUnit.MILLISECONDS;
 
-    private static int connectionTimeout = 10000;
-    private static int readTimeout = 3000;
+    private static int connectionTimeout = 30000;
+    private static int readTimeout = 10000;
 
     public static int getConnectionTimeout() {
         return Timeout.connectionTimeout;

@@ -122,6 +122,7 @@ public class LoginActivity extends DepthActivity implements GoogleApiClient.Conn
 		loginPresenter = new LoginPresenter(this);
 //		signUpPresenter = new SignUpPresenter();
 
+
 		initLoginSetting();
 	}
 

@@ -18,9 +18,15 @@ import butterknife.BindInt;
 import kth.com.unithon11team.R;
 import kth.com.unithon11team.adapter.CategoryCategoryAdapter;
 import kth.com.unithon11team.api.MusicalService.Model.Musical;
+import kth.com.unithon11team.api.MusicalService.MusicalServiceManager;
+import kth.com.unithon11team.api.basemodel.BaseResponse;
+import kth.com.unithon11team.api.basemodel.Result;
 import kth.com.unithon11team.category.CategoryCategory;
 import kth.com.unithon11team.define.Args;
 import kth.com.unithon11team.listener.RecyclerViewItemClickListener;
+import retrofit2.Response;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
 
 /**
  * Created by kinamare on 2017-07-29.
@@ -35,6 +41,8 @@ public class CategoryCategoryFragment extends RecyclerFragment implements Recycl
 
 	private CategoryCategoryAdapter adapter;
 	private CategoryCategory category = CategoryCategory.All;
+
+	private List<Musical> musicalList;
 
 	/**
 	 * 인스턴스
@@ -65,14 +73,11 @@ public class CategoryCategoryFragment extends RecyclerFragment implements Recycl
 		if (c != null && c instanceof CategoryCategory) {
 			category = (CategoryCategory) c;
 
-			List<Musical> musicalList = new ArrayList<>();
-			for (int i = 0; i < 10; i++) {
-				Musical musicalData = new Musical();
-				musicalList.add(musicalData);
-			}
 
-			recyclerView.setAdapter(adapter = new CategoryCategoryAdapter(musicalList, this));
+			recyclerView.setAdapter(adapter = new CategoryCategoryAdapter(new ArrayList<Musical>(), this));
 			ViewCompat.setNestedScrollingEnabled(recyclerView, false);
+
+			requestMusicalToServer();
 
 		}
 
@@ -80,6 +85,42 @@ public class CategoryCategoryFragment extends RecyclerFragment implements Recycl
 
 
 		onRefresh();
+	}
+
+	private void requestMusicalToServer() {
+		MusicalServiceManager.getAllMusicalInfo()
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Subscriber<Response<BaseResponse<Result>>>() {
+					@Override
+					public void onCompleted() {
+
+					}
+
+					@Override
+					public void onError(Throwable e) {
+
+					}
+
+					@Override
+					public void onNext(Response<BaseResponse<Result>> baseResponseResponse) {
+						musicalList = baseResponseResponse.body().mResult.allMusicalList;
+						setAllMusicalList(musicalList);
+					}
+				});
+	}
+
+	private void setAllMusicalList(List<Musical> musicalList) {
+		if(musicalList != null){
+			adapter.clear();
+			adapter.addAll(musicalList);
+			adapter.notifyDataSetChanged();
+		}
+	}
+
+	@Override
+	public void onResume(){
+		super.onResume();
+		requestMusicalToServer();
 	}
 
 	private void loadBundleData(Bundle savedInstanceState) {

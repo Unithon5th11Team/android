@@ -1,7 +1,10 @@
 package kth.com.unithon11team.adapter.holder;
 
+import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
+import butterknife.BindView;
+import kth.com.unithon11team.R;
 import kth.com.unithon11team.api.MusicalService.Model.Musical;
 import kth.com.unithon11team.listener.RecyclerViewItemClickListener;
 

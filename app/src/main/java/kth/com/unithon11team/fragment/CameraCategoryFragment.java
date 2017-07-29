@@ -35,9 +35,11 @@ import java.util.List;
 import butterknife.BindDimen;
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import kth.com.unithon11team.R;
 import kth.com.unithon11team.activity.ResultActivity;
 import kth.com.unithon11team.api.basemodel.BaseResponse;
+import kth.com.unithon11team.api.basemodel.Result;
 import kth.com.unithon11team.api.rekognation.RekognationServiceManager;
 import kth.com.unithon11team.api.rekognation.model.RecognationImage;
 import kth.com.unithon11team.category.CameraCategoty;
@@ -71,6 +73,9 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 	private CameraCategoty category = CameraCategoty.CAMERA_TITLE;
 
 	private Bitmap mBitmap;
+
+	private SweetAlertDialog materialDialog;
+
 
 	/**
 	 * 인스턴스
@@ -207,6 +212,8 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 
 		public void onPictureTaken(byte[] data, Camera camera) {
 
+			showLoadingBar();
+
 			// JPEG 이미지가 byte[] 형태로 들어옵니다.
 
 			File pictureFile = getOutputMediaFile();
@@ -214,18 +221,21 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 			// data[] 로 넘어온 데이터를 bitmap으로 변환
 			Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
 
+			Bitmap rotateBitmap;
+
 			Matrix m = new Matrix();
-
 			m.setRotate(90, (float) bmp.getWidth(), (float) bmp.getHeight());
+			rotateBitmap = Bitmap.createScaledBitmap(bmp, 500, bmp.getHeight()/(bmp.getWidth()/500), true);
+			rotateBitmap = Bitmap.createBitmap(rotateBitmap, 0, 0, rotateBitmap.getWidth(), rotateBitmap.getHeight(), m, false);
 
-			Bitmap rotateBitmap = Bitmap.createBitmap(bmp, 0, 0, bmp.getWidth(), bmp.getHeight(), m, false);
 
 			mBitmap = rotateBitmap;
+
 
 			bmp.recycle();
 
 			ByteArrayOutputStream stream = new ByteArrayOutputStream();
-			rotateBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+			mBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
 			byte[] byteArray = stream.toByteArray();
 
 			if (pictureFile == null) {
@@ -234,7 +244,9 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 
 				return;
 
+
 			}
+
 
 
 			try {
@@ -262,7 +274,7 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 
 			RekognationServiceManager.sendToImage(pictureFile.getAbsolutePath())
 					.observeOn(AndroidSchedulers.mainThread())
-					.subscribe(new Subscriber<Response<BaseResponse<RecognationImage>>>() {
+					.subscribe(new Subscriber<Response<BaseResponse<Result>>>() {
 						@Override
 						public void onCompleted() {
 
@@ -274,18 +286,22 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 							Bundle args = new Bundle();
 							args.putString(REQUEST_IMAGE_FROM_CAMERA, getImageUri(getContext(), mBitmap).toString());
 							goToActivity(ResultActivity.class, args);
+							hideLoadingBar();
 						}
 
 						@Override
-						public void onNext(Response<BaseResponse<RecognationImage>> baseResponseResponse) {
-							RecognationImage recognationImage = baseResponseResponse.body().mResult;
+						public void onNext(Response<BaseResponse<Result>> baseResponseResponse) {
+							List<RecognationImage> recognationImage = baseResponseResponse.body().mResult.recognationImageList;
 							Bundle args = new Bundle();
-							args.putSerializable(REKOGNATION_IMAGE, recognationImage);
+							args.putSerializable(REKOGNATION_IMAGE, (Serializable) recognationImage);
 							args.putString(REQUEST_IMAGE_FROM_CAMERA, getImageUri(getContext(), mBitmap).toString());
 							goToActivity(ResultActivity.class, args);
+							hideLoadingBar();
 
 						}
 					});
+
+
 
 		}
 
@@ -368,6 +384,19 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 
 	}
 
+	public void showLoadingBar() {
+		materialDialog = new SweetAlertDialog(getContext(), SweetAlertDialog.PROGRESS_TYPE);
+		materialDialog.getProgressHelper().setBarColor(this.getResources().getColor(R.color.dialog_color));
+		materialDialog.setTitleText(getString(R.string.loading_dialog_title));
+		materialDialog.setCancelable(false);
+		materialDialog.show();
+	}
+
+
+	public void hideLoadingBar() {
+		if (materialDialog != null)
+			materialDialog.dismiss();
+	}
 
 
 

@@ -1,18 +1,13 @@
 package kth.com.unithon11team.api.rekognation;
 
-import android.database.Observable;
-
 import com.vocketlist.android.network.executor.Priority;
-import com.vocketlist.android.network.service.ServiceErrorChecker;
 import com.vocketlist.android.network.service.ServiceHelper;
 
 import java.io.File;
 
-import kth.com.unithon11team.api.BaseServiceErrorChecker;
 import kth.com.unithon11team.api.ServiceDefine;
 import kth.com.unithon11team.api.basemodel.BaseResponse;
 import kth.com.unithon11team.api.basemodel.Result;
-import kth.com.unithon11team.api.rekognation.model.RecognationImage;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -31,7 +26,7 @@ public class RekognationServiceManager {
 
 	}
 
-	public static rx.Observable<Response<BaseResponse<RecognationImage>>> sendToImage(String imagePath){
+	public static rx.Observable<Response<BaseResponse<Result>>> sendToImage(String imagePath){
 
 		MultipartBody.Part image = null;
 
@@ -40,8 +35,8 @@ public class RekognationServiceManager {
 		}
 
 		return service.sendToImage(image)
-				.subscribeOn(ServiceHelper.getPriorityScheduler(Priority.MEDIUM))
-				.lift(new ServiceErrorChecker<>(new BaseServiceErrorChecker<RecognationImage>()));
+				.subscribeOn(ServiceHelper.getPriorityScheduler(Priority.MEDIUM));
+
 
 	}
 

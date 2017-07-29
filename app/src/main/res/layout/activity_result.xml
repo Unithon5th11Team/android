@@ -30,12 +30,12 @@
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:weightSum="10">
+        android:weightSum="15">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5"
+            android:layout_weight="7"
             android:gravity="center_horizontal"
             android:padding="30dp">
 
@@ -49,7 +49,45 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/activity_result_emotion_tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_54"
+                android:textStyle="bold"
+                tools:text="이 사진의 감정 표현은 99.8878%로 행복 입니다."/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/activity_result_emotion_tv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_54"
+                android:textStyle="bold"
+                tools:text="이 사진의 감정 표현은 99.8878%로 행복 입니다."/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <android.support.v7.widget.AppCompatTextView
@@ -59,10 +97,18 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_54"
                 android:textStyle="bold"
-                android:text="이 사진의 감정 표현은 99.8878%로 행복 입니다."/>
+                tools:text="이 사진의 감정 표현은 99.8878%로 행복 입니다."/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
             <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/activity_result_emotion_tv3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -70,9 +116,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_54"
                 android:textStyle="bold"
-                android:text="원하는 감정이 맞나요?"/>
-
-
+                tools:text="원하는 감정이 맞나요?"/>
         </LinearLayout>
 
         <LinearLayout
@@ -82,6 +126,7 @@
             android:gravity="center_vertical|center_horizontal">
 
             <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/activity_result_done_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_keyboard_arrow_down_black_36dp"/>
