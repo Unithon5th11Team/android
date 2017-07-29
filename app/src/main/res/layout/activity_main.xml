@@ -90,7 +90,7 @@
 
                 </LinearLayout>
 
-                <!-- 장바구니 탭 -->
+                <!-- 커뮤니티 탭 -->
                 <LinearLayout
                     android:id="@+id/llCommunityTab"
                     android:layout_width="match_parent"

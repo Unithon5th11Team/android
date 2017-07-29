@@ -51,7 +51,7 @@ public class CategoryViewPagerFragment extends BaseFragment {
 		viewPager.setAdapter(mAdapter);
 
 		// 탭
-		TabLayout tabLayout = ButterKnife.findById(act, R.id.tlCamera);
+		TabLayout tabLayout = ButterKnife.findById(act, R.id.tlCategory);
 		tabLayout.setupWithViewPager(viewPager);
 
 		// 글쓰기
