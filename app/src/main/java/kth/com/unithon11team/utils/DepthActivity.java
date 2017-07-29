@@ -26,13 +26,6 @@ public class DepthActivity extends AppCompatActivity {
 	private static final int PERMISSIONS_REQUEST_CODE = 9999;
 
 
-
-	static {
-		System.loadLibrary("opencv_java3");
-	}
-
-
-
 	private boolean mIsRootActivity = false;
 	private boolean mCloseFlag = false;
 

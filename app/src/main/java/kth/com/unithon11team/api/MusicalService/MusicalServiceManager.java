@@ -24,4 +24,5 @@ public class MusicalServiceManager {
 		return SERVICE.getMusicalList(MUSICAL_API_KEY, startIndex, endIndex)
 				.subscribeOn(ServiceHelper.getPriorityScheduler(Priority.MEDIUM));
 	}
+
 }

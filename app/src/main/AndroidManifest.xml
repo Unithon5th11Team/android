@@ -3,13 +3,11 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="kth.com.unithon11team">
 
-
-
     <!-- 네트워크 사용 권한 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".utils.AppApplication"
@@ -18,15 +16,23 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:replace="android:allowBackup">
+        android:theme="@style/NoAppTheme"
+        tools:replace="android:allowBackup,android:icon">
         <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".activity.CameraActiity">
+        </activity>
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity"
+                  android:label="OAuth2.0 In-app"/>
     </application>
 
 </manifest>
