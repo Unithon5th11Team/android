@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\kinamare\\Documents\\unithon11team\\network\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ml\\values-ml.xml",
+        "outputFile": "C:\\Users\\User\\StudioProjects\\client\\network\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-ml\\values-ml.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 319
                 },
                 "from": {
-                    "file": "C:\\Users\\kinamare\\.android\\build-cache\\1b3e99a50ee59d280dac1d2eb65c1461d5f1a5aa\\output\\res\\values-ml\\values.xml",
+                    "file": "C:\\Users\\User\\.android\\build-cache\\c813788d480285a214a80384f89b63403d92f674\\output\\res\\values-ml\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 0,

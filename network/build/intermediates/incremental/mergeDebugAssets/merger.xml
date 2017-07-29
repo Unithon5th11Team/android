@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\kinamare\Documents\unithon11team\network\src\main\assets"/><source path="C:\Users\kinamare\Documents\unithon11team\network\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\Users\kinamare\Documents\unithon11team\network\src\debug\assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\Users\User\StudioProjects\client\network\src\main\assets"/><source path="C:\Users\User\StudioProjects\client\network\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="C:\Users\User\StudioProjects\client\network\src\debug\assets"/></dataSet></merger>

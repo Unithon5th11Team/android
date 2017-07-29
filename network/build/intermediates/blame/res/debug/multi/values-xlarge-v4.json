@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\kinamare\\Documents\\unithon11team\\network\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
+        "outputFile": "C:\\Users\\User\\StudioProjects\\client\\network\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 121
                 },
                 "from": {
-                    "file": "C:\\Users\\kinamare\\.android\\build-cache\\c1ccce347964578d6acc15e17122b85d5bb75ec8\\output\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "file": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 192
                 },
                 "from": {
-                    "file": "C:\\Users\\kinamare\\.android\\build-cache\\c1ccce347964578d6acc15e17122b85d5bb75ec8\\output\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "file": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 262
                 },
                 "from": {
-                    "file": "C:\\Users\\kinamare\\.android\\build-cache\\c1ccce347964578d6acc15e17122b85d5bb75ec8\\output\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "file": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 332
                 },
                 "from": {
-                    "file": "C:\\Users\\kinamare\\.android\\build-cache\\c1ccce347964578d6acc15e17122b85d5bb75ec8\\output\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "file": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 400
                 },
                 "from": {
-                    "file": "C:\\Users\\kinamare\\.android\\build-cache\\c1ccce347964578d6acc15e17122b85d5bb75ec8\\output\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "file": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 468
                 },
                 "from": {
-                    "file": "C:\\Users\\kinamare\\.android\\build-cache\\c1ccce347964578d6acc15e17122b85d5bb75ec8\\output\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "file": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
