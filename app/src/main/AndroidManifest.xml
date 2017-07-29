@@ -9,13 +9,10 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
-
-
     <!-- 카메라 , 외부 저장소 읽고 쓰기 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
 
     <supports-screens
         android:anyDensity="true"
@@ -23,7 +20,6 @@
         android:normalScreens="true"
         android:resizeable="true"
         android:smallScreens="true"/>
-
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -57,12 +53,15 @@
         <activity android:name=".activity.CameraActiity">
         </activity>
         <activity android:name=".activity.LoginActivity">
-
         </activity>
-        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
-                  android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity"
-                  android:label="OAuth2.0 In-app"/>
+        <activity
+            android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity
+            android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity"
+            android:label="OAuth2.0 In-app"/>
+        <activity android:name=".activity.ResultActivity">
+        </activity>
     </application>
 
 </manifest>

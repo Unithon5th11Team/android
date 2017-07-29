@@ -58,6 +58,7 @@ public class MainActivity extends DepthActivity implements NavigationView.OnNavi
 		goToFragment(CategoryViewPagerFragment.class);
 	}
 
+
 	private void initToolbar() {
 		// 헤더 CI 적용
 		setSupportActionBar(mToolbar);

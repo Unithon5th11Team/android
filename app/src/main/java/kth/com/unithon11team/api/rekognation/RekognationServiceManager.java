@@ -31,7 +31,7 @@ public class RekognationServiceManager {
 
 	}
 
-	public static rx.Observable sendToImage(String imagePath){
+	public static rx.Observable<Response<BaseResponse<RecognationImage>>> sendToImage(String imagePath){
 
 		MultipartBody.Part image = null;
 

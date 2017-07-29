@@ -7,7 +7,6 @@
     <string name="finish_application">\\‘뒤로\\’ 버튼을 한번 더 누르시면 종료됩니다.</string>
 
 
-
     <string name="bottom_category">카테고리</string>
     <string name="bottom_camera">감정인식</string>
     <string name="bottom_basket">커뮤니티</string>
@@ -41,7 +40,6 @@
     <string name="notice_service_2">\u0020and agree to the\u0020</string>
     <string name="notice_service_3"><b>Terms of Service</b></string>
     <string name="welcome_roler_title">안녕하세요!</string>
-
 
 
     <string name="banner_ad_unit_id">ca-app-pub-6734975683573162/7719479339</string>
