@@ -2,10 +2,13 @@ package kth.com.unithon11team.adapter.holder;
 
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.android.gms.vision.text.Line;
 
 import butterknife.BindView;
 import kth.com.unithon11team.R;
@@ -28,6 +31,8 @@ public class CategoryHolder  extends BaseViewHolder<Musical> implements View.OnC
 	AppCompatTextView mDataTv;
 	@BindView(R.id.row_category_grade_tv)
 	AppCompatTextView mGradeTv;
+	@BindView(R.id.row_category_card_view)
+	LinearLayout cardView;
 
 
 	private RecyclerViewItemClickListener mListener;
@@ -68,6 +73,8 @@ public class CategoryHolder  extends BaseViewHolder<Musical> implements View.OnC
 		mLocalTv.setText(item.mLoc);
 
 		mGradeTv.setText(item.mGrade);
+
+		mCategoryIv.setOnClickListener(this);
 
 
 	}

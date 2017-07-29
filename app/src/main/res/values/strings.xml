@@ -161,6 +161,8 @@
     <string name="empty_emotion_again">다시 한번 시도해주세요.</string>
     <string name="community_all_title">전체 글</string>
     <string name="community_my_writing_title">내가 쓴 글</string>
+    <string name="row_category_detail_title">연극 상세페이지</string>
+    <string name="row_category_detail_period">연극 기간</string>
 
 
 </resources>

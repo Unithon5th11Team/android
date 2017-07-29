@@ -1,5 +1,6 @@
 package kth.com.unithon11team.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,6 +17,7 @@ import java.util.List;
 import butterknife.BindDimen;
 import butterknife.BindInt;
 import kth.com.unithon11team.R;
+import kth.com.unithon11team.activity.DetailActivity;
 import kth.com.unithon11team.adapter.CategoryCategoryAdapter;
 import kth.com.unithon11team.api.MusicalService.Model.Musical;
 import kth.com.unithon11team.api.MusicalService.MusicalServiceManager;
@@ -35,7 +37,7 @@ import rx.android.schedulers.AndroidSchedulers;
 
 public class CategoryCategoryFragment extends RecyclerFragment implements RecyclerViewItemClickListener {
 
-	public static final String TAG = "kth.com.nanamare.BasketCategoryFragment";
+	public static final String TAG = "kth.com.nanamare.CategoryCategoryFragment";
 
 	@BindInt(R.integer.basket_category_grid_column) protected int column;
 	@BindDimen(R.dimen.volunteer_category_grid_space) protected int space;
@@ -111,6 +113,7 @@ public class CategoryCategoryFragment extends RecyclerFragment implements Recycl
 					@Override
 					public void onNext(Response<BaseResponse<Result>> baseResponseResponse) {
 						musicalList = baseResponseResponse.body().mResult.allMusicalList;
+						MusicalServiceManager.dataList = musicalList;
 						setAllMusicalList(musicalList);
 					}
 				});
@@ -158,5 +161,43 @@ public class CategoryCategoryFragment extends RecyclerFragment implements Recycl
 	@Override
 	public void onItemClick(View v, int position) {
 
+		switch (v.getId()) {
+
+			case R.id.row_camera_category_iv: {
+
+				Bundle args = new Bundle();
+				args.putInt(TAG, position);
+				goToActivity(DetailActivity.class, args);
+
+				break;
+			}
+		}
 	}
+
+
+	/**
+	 * 액티비티 호출
+	 *
+	 * @param cls
+	 */
+	private void goToActivity(Class<?> cls) {
+		goToActivity(cls, null);
+	}
+
+
+	/**
+	 * 액티비티 호출
+	 *
+	 * @param cls
+	 * @param extras
+	 */
+	private void goToActivity(Class<?> cls, @Nullable Bundle extras) {
+		Intent intent = new Intent(getContext(), cls);
+		if (extras != null) intent.putExtras(extras);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+		startActivity(intent);
+	}
+
+
 }
+
