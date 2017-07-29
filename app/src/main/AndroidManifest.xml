@@ -47,8 +47,9 @@
         </activity>
         <activity android:name=".activity.CameraActiity">
         </activity>
-        <activity android:name=".activity.LoginActivity"
-                  android:theme="@style/NoAppTheme">
+        <activity
+            android:name=".activity.LoginActivity"
+            android:theme="@style/NoAppTheme">
         </activity>
         <activity
             android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
@@ -64,6 +65,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.DetailActivity">
         </activity>
     </application>
 
