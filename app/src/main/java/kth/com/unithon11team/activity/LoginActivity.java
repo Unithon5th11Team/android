@@ -314,6 +314,10 @@ public class LoginActivity extends DepthActivity implements GoogleApiClient.Conn
 
 				showLoadingBar();
 
+				goToMainActivity();
+
+				hideLoadingBar();
+
 
 			}
 		}
@@ -419,6 +423,7 @@ public class LoginActivity extends DepthActivity implements GoogleApiClient.Conn
 			String pwd = ja.getAsJsonObject("response").getAsJsonPrimitive("id").getAsString();
 
 
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -434,8 +439,6 @@ public class LoginActivity extends DepthActivity implements GoogleApiClient.Conn
 				String refreshToken = mOAuthLoginModule.getRefreshToken(LoginActivity.this);
 				long expiresAt = mOAuthLoginModule.getExpiresAt(LoginActivity.this);
 				String tokenType = mOAuthLoginModule.getTokenType(LoginActivity.this);
-
-				showLoadingBar();
 
 				new Thread() {
 					@Override
@@ -455,12 +458,13 @@ public class LoginActivity extends DepthActivity implements GoogleApiClient.Conn
 
 				Ln.d(errorCode, errorDesc);
 			}
-		}
 
+			goToMainActivity();
+		}
 
 	};
 
-	private void goToPlanActivity() {
+	private void goToMainActivity() {
 		Toast.makeText(LoginActivity.this, getString(R.string.login_success), Toast.LENGTH_SHORT).show();
 		Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -503,7 +507,7 @@ public class LoginActivity extends DepthActivity implements GoogleApiClient.Conn
 
 							hideLoadingBar();
 //							SharePrefUtil.putSharedPreference(getString(R.string.IS_LOGIN_KEY), true);
-							goToPlanActivity();
+							goToMainActivity();
 
 						}
 					});

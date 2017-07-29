@@ -82,7 +82,7 @@ public class ResultActivity extends AppCompatActivity {
 	}
 
 	private void setRecognationData(List<RecognationImage> data) {
-		if(data != null) {
+		if(data.size() != 0) {
 			mPriortyType = data.get(0).type;
 			emotionTv1.setText(String.format(getString(R.string.emotion_title), data.get(0).confidence, data.get(0).type));
 			emotionTv2.setText(String.format(getString(R.string.emotion_title), data.get(1).confidence, data.get(1).type));

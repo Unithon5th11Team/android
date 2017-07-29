@@ -17,19 +17,44 @@
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp">
+                android:layout_height="match_parent">
 
-                <SurfaceView
-                    android:id="@+id/fragment_camera_custom_view"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:padding="10dp">
 
-            </LinearLayout>
+                    <SurfaceView
+                        android:id="@+id/fragment_camera_custom_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="#88000000"
+                    android:id="@+id/fragment_loading_dialog"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/intro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/intro_ani"
+                        android:scaleX="0.6"
+                        android:scaleY="0.6"/>
+
+                </LinearLayout>
+
+            </FrameLayout>
 
         </android.support.design.widget.CollapsingToolbarLayout>
+
 
     </android.support.design.widget.AppBarLayout>
 
@@ -40,61 +65,61 @@
         android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal|center_vertical"
-            android:orientation="horizontal"
-            android:padding="3dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <android.support.v7.widget.AppCompatImageView
-                android:layout_width="wrap_content"
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_action_date_range"/>
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_action_date_range"/>
 
 
-            <android.support.v7.widget.AppCompatImageView
-                android:id="@+id/fragment_camera_send_iv"
-                android:layout_width="wrap_content"
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/fragment_camera_send_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/ic_action_photo_camera"/>
+
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/fragment_camera_album_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_action_photo"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/hard_grey"/>
+
+
+            <com.malinskiy.superrecyclerview.SuperRecyclerView
+                android:id="@+id/activity_fragment_recyclerView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp"
-                android:background="@drawable/ic_action_photo_camera"/>
-
-
-            <android.support.v7.widget.AppCompatImageView
-                android:id="@+id/fragment_camera_album_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_action_photo"/>
-
+                app:layout_empty="@layout/empty_fragment"
+                app:layout_moreProgress="@layout/layout_more_progress"
+                app:mainLayoutId="@layout/layout_recyclerview_verticalscroll"
+                app:recyclerClipToPadding="false"
+                app:recyclerPadding="0dp"
+                app:scrollbarStyle="outsideOverlay"/>
 
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/hard_grey"/>
-
-
-        <com.malinskiy.superrecyclerview.SuperRecyclerView
-            android:id="@+id/activity_fragment_recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_empty="@layout/empty_fragment"
-            app:layout_moreProgress="@layout/layout_more_progress"
-            app:mainLayoutId="@layout/layout_recyclerview_verticalscroll"
-            app:recyclerClipToPadding="false"
-            app:recyclerPadding="0dp"
-            app:scrollbarStyle="outsideOverlay"/>
-
-    </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
 

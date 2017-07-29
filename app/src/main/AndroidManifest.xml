@@ -44,15 +44,11 @@
         android:theme="@style/NoAppTheme"
         tools:replace="android:allowBackup,android:icon">
         <activity android:name=".activity.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".activity.CameraActiity">
         </activity>
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.LoginActivity"
+                  android:theme="@style/NoAppTheme">
         </activity>
         <activity
             android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
@@ -61,6 +57,13 @@
             android:name="com.nhn.android.naverlogin.ui.OAuthLoginInAppBrowserActivity"
             android:label="OAuth2.0 In-app"/>
         <activity android:name=".activity.ResultActivity">
+        </activity>
+        <activity android:name=".activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

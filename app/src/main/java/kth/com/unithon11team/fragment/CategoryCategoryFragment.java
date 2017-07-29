@@ -89,6 +89,11 @@ public class CategoryCategoryFragment extends RecyclerFragment implements Recycl
 		onRefresh();
 	}
 
+	@Override
+	public void onRefresh(){
+		requestMusicalToServer();
+	}
+
 	private void requestMusicalToServer() {
 		MusicalServiceManager.getAllMusicalInfo()
 				.observeOn(AndroidSchedulers.mainThread())

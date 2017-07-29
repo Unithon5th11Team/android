@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraDevice;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -20,6 +22,8 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -65,6 +69,8 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 	SurfaceView mCameraView;
 	@BindView(R.id.fragment_camera_send_iv)
 	AppCompatImageView mSendDoneIv;
+	@BindView(R.id.fragment_loading_dialog) LinearLayout mLoadingDialog;
+	@BindView(R.id.intro) protected ImageView mIntroView;
 
 	private CameraDevice camera;
 	private SurfaceHolder mCameraHolder;
@@ -75,6 +81,10 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 	private Bitmap mBitmap;
 
 	private SweetAlertDialog materialDialog;
+
+	private Handler mHandler = new Handler();
+
+
 
 
 	/**
@@ -212,7 +222,7 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 
 		public void onPictureTaken(byte[] data, Camera camera) {
 
-			showLoadingBar();
+			startIntro();
 
 			// JPEG 이미지가 byte[] 형태로 들어옵니다.
 
@@ -286,7 +296,8 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 							Bundle args = new Bundle();
 							args.putString(REQUEST_IMAGE_FROM_CAMERA, getImageUri(getContext(), mBitmap).toString());
 							goToActivity(ResultActivity.class, args);
-							hideLoadingBar();
+							stopIntro();
+
 						}
 
 						@Override
@@ -296,7 +307,7 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 							args.putSerializable(REKOGNATION_IMAGE, (Serializable) recognationImage);
 							args.putString(REQUEST_IMAGE_FROM_CAMERA, getImageUri(getContext(), mBitmap).toString());
 							goToActivity(ResultActivity.class, args);
-							hideLoadingBar();
+							stopIntro();
 
 						}
 					});
@@ -306,6 +317,21 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 		}
 
 	};
+
+	protected void startIntro() {
+		mLoadingDialog.setVisibility(View.VISIBLE);
+		AnimationDrawable drawable = (AnimationDrawable) mIntroView.getBackground();
+		drawable.start();
+
+		drawable.setOneShot(true);
+	}
+
+	protected void stopIntro(){
+		getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+		mLoadingDialog.setVisibility(View.GONE);
+	}
+
+
 
 	public Uri getImageUri(Context inContext, Bitmap inImage) {
 		ByteArrayOutputStream bytes = new ByteArrayOutputStream();

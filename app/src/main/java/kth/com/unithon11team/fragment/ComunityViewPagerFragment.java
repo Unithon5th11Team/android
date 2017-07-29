@@ -14,7 +14,6 @@ import butterknife.ButterKnife;
 import kth.com.unithon11team.R;
 import kth.com.unithon11team.activity.MainActivity;
 import kth.com.unithon11team.adapter.TitleAdapter;
-import kth.com.unithon11team.category.CategoryCategory;
 import kth.com.unithon11team.category.CommunityCategory;
 
 /**
