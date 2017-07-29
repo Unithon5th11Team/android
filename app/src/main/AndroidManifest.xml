@@ -9,6 +9,35 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
+
+
+    <!-- 카메라 , 외부 저장소 읽고 쓰기 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"/>
+
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.camera.front.autofocus"
+        android:required="false"/>
+
     <application
         android:name=".utils.AppApplication"
         android:allowBackup="true"
@@ -18,16 +47,17 @@
         android:supportsRtl="true"
         android:theme="@style/NoAppTheme"
         tools:replace="android:allowBackup,android:icon">
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".activity.CameraActiity">
-        </activity>
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.CameraActiity">
+        </activity>
+        <activity android:name=".activity.LoginActivity">
+
         </activity>
         <activity android:name="com.nhn.android.naverlogin.ui.OAuthLoginActivity"
                   android:theme="@android:style/Theme.Translucent.NoTitleBar"/>

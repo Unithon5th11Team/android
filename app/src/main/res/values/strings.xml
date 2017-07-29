@@ -7,6 +7,12 @@
     <string name="finish_application">\\‘뒤로\\’ 버튼을 한번 더 누르시면 종료됩니다.</string>
 
 
+
+    <string name="bottom_category">카테고리</string>
+    <string name="bottom_camera">감정인식</string>
+    <string name="bottom_basket">커뮤니티</string>
+
+
     <!-- local WebActivity -->
     <string name="html_license">roler_license.html</string>
     <string name="html_all">all.html</string>
@@ -147,6 +153,11 @@
 
     <!-- setting activity-->
     <string name="tutorial_title">디자인\n작업중입니다.</string>
+    <string name="com_writing">글쓰기</string>
+    <string name="category_all">전체</string>
+    <string name="category_horror">호러</string>
+    <string name="category_camera">감정 인식</string>
+    <string name="empty_fragment_title">글이 없습니다</string>
 
 
 </resources>

@@ -41,7 +41,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import kth.com.unithon11team.IPresneter.ILoginPresenter;
-import kth.com.unithon11team.MainActivity;
 import kth.com.unithon11team.Presenter.LoginPresenter;
 import kth.com.unithon11team.R;
 import kth.com.unithon11team.utils.DepthActivity;

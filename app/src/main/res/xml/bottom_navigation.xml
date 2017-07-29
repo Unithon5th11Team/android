@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <!-- 카테고리 -->
+    <tab
+        id="@+id/action_category"
+        icon="@drawable/ic_linear_scale"
+        title="@string/bottom_category"
+        barColorWhenSelected="@color/point_5FA9D0" />
+    <!--
+    icon="@drawable/ic_link"
+    activeColor="@color/material_grey900"
+    inActiveColor="@color/material_grey600"
+    -->
+
+    <!-- 카메라 -->
+    <tab
+        id="@+id/action_camera"
+        icon="@drawable/ic_camera_enhance_black_24dp"
+        title="@string/bottom_camera"
+        barColorWhenSelected="@color/point_E47B75" />
+
+    <!-- 커뮤니티 -->
+    <tab
+        id="@+id/action_community"
+        icon="@drawable/ic_link"
+        title="@string/bottom_basket"
+        barColorWhenSelected="@color/point_424C57" />
+    <!--
+    icon="@drawable/ic_linear_scale"
+    activeColor="@color/material_grey900"
+    inActiveColor="@color/material_grey600"
+    -->
+</tabs>
