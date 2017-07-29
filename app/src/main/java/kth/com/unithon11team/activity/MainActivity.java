@@ -22,8 +22,10 @@ import com.roughike.bottombar.OnTabSelectListener;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import kth.com.unithon11team.R;
+import kth.com.unithon11team.category.CommunityCategory;
 import kth.com.unithon11team.fragment.CameraViewPagerFragment;
 import kth.com.unithon11team.fragment.CategoryViewPagerFragment;
+import kth.com.unithon11team.fragment.ComunityViewPagerFragment;
 import kth.com.unithon11team.utils.DepthActivity;
 
 public class MainActivity extends DepthActivity implements NavigationView.OnNavigationItemSelectedListener,
@@ -98,7 +100,7 @@ public class MainActivity extends DepthActivity implements NavigationView.OnNavi
 				llCommunityTab.setVisibility(View.VISIBLE);
 				llCategoryTab.setVisibility(View.INVISIBLE);
 				llCameraTab.setVisibility(View.INVISIBLE);
-//				goToFragment(BasketFragment.class);
+				goToFragment(ComunityViewPagerFragment.class);
 				break;
 			//카테고리
 			case R.id.action_category :

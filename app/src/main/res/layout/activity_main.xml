@@ -40,6 +40,7 @@
 
                 <!-- 카테고리 탭-->
                 <LinearLayout
+                    android:visibility="visible"
                     android:id="@+id/llCategoryTab"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -60,14 +61,6 @@
                         app:tabTextAppearance="@style/TabLayout.Label"
                         app:tabTextColor="#7f7f7f"/>
 
-                    <!-- 필터 아이콘 -->
-                    <android.support.v7.widget.AppCompatImageView
-                        style="@style/Button.Tab"
-                        android:layout_width="50dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:padding="13dp"
-                        android:scaleType="centerInside"/>
                 </LinearLayout>
 
                 <!-- 커뮤니티 탭 -->

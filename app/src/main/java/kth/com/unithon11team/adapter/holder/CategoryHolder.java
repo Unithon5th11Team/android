@@ -5,6 +5,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import butterknife.BindView;
 import kth.com.unithon11team.R;
@@ -56,6 +57,8 @@ public class CategoryHolder  extends BaseViewHolder<Musical> implements View.OnC
 				.load(item.mImageURL)
 				.asGif()
 				.crossFade()
+				.placeholder(R.drawable.mock_musical1)
+				.diskCacheStrategy(DiskCacheStrategy.SOURCE)
 				.into(mCategoryIv);
 
 		mTitletV.setText(item.mTitle);
