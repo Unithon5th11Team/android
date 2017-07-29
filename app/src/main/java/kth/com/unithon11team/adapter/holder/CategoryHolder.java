@@ -1,7 +1,10 @@
 package kth.com.unithon11team.adapter.holder;
 
+import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+
+import com.bumptech.glide.Glide;
 
 import butterknife.BindView;
 import kth.com.unithon11team.R;
@@ -14,9 +17,20 @@ import kth.com.unithon11team.listener.RecyclerViewItemClickListener;
 
 public class CategoryHolder  extends BaseViewHolder<Musical> implements View.OnClickListener{
 
+	@BindView(R.id.row_camera_category_iv)
+	AppCompatImageView mCategoryIv;
+	@BindView(R.id.row_category_title_tv)
+	AppCompatTextView mTitletV;
+	@BindView(R.id.row_category_local_tv)
+	AppCompatTextView mLocalTv;
+	@BindView(R.id.row_category_data_tv)
+	AppCompatTextView mDataTv;
+	@BindView(R.id.row_category_grade_tv)
+	AppCompatTextView mGradeTv;
+
 
 	private RecyclerViewItemClickListener mListener;
-	private Musical data;
+	private Musical item;
 
 	/**
 	 * 생성자
@@ -35,7 +49,23 @@ public class CategoryHolder  extends BaseViewHolder<Musical> implements View.OnC
 
 	@Override
 	public void bind(Musical data){
-		this.data = data;
+		this.item = data;
+
+
+		Glide.with(context)
+				.load(item.mImageURL)
+				.asGif()
+				.crossFade()
+				.into(mCategoryIv);
+
+		mTitletV.setText(item.mTitle);
+
+		mDataTv.setText(item.mDate);
+
+		mLocalTv.setText(item.mLoc);
+
+		mGradeTv.setText(item.mGrade);
+
 
 	}
 

@@ -7,6 +7,8 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 import kth.com.unithon11team.api.MusicalService.Model.Musical;
+
+import kth.com.unithon11team.api.MusicalService.Model.MusicalDetail;
 import kth.com.unithon11team.api.rekognation.model.RecognationImage;
 
 /**
@@ -21,4 +23,6 @@ public class Result {
 	@SerializedName("musical") public List<Musical> musicalList;
 
 	@SerializedName("all_musicals") public List<Musical> allMusicalList;
+
+	@SerializedName("musical_detail") public MusicalDetail musicalDetail;
 }

@@ -22,6 +22,7 @@ import kth.com.unithon11team.api.MusicalService.MusicalServiceManager;
 import kth.com.unithon11team.api.basemodel.BaseResponse;
 import kth.com.unithon11team.api.basemodel.Result;
 import kth.com.unithon11team.category.CategoryCategory;
+import kth.com.unithon11team.decoration.GridSpacingItemDecoration;
 import kth.com.unithon11team.define.Args;
 import kth.com.unithon11team.listener.RecyclerViewItemClickListener;
 import retrofit2.Response;
@@ -36,8 +37,8 @@ public class CategoryCategoryFragment extends RecyclerFragment implements Recycl
 
 	public static final String TAG = "kth.com.nanamare.BasketCategoryFragment";
 
+	@BindInt(R.integer.basket_category_grid_column) protected int column;
 	@BindDimen(R.dimen.volunteer_category_grid_space) protected int space;
-
 
 	private CategoryCategoryAdapter adapter;
 	private CategoryCategory category = CategoryCategory.All;
@@ -75,6 +76,7 @@ public class CategoryCategoryFragment extends RecyclerFragment implements Recycl
 
 
 			recyclerView.setAdapter(adapter = new CategoryCategoryAdapter(new ArrayList<Musical>(), this));
+			recyclerView.addItemDecoration(new GridSpacingItemDecoration(column, space, false));
 			ViewCompat.setNestedScrollingEnabled(recyclerView, false);
 
 			requestMusicalToServer();
@@ -145,7 +147,7 @@ public class CategoryCategoryFragment extends RecyclerFragment implements Recycl
 	@NonNull
 	@Override
 	protected RecyclerView.LayoutManager getLayoutManager() {
-		return new LinearLayoutManager(getContext());
+		return new GridLayoutManager(getContext(), column);
 	}
 
 	@Override

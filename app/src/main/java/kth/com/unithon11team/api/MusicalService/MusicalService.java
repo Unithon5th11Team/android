@@ -31,4 +31,7 @@ public interface MusicalService {
 
 	@GET("info")
 	Observable<Response<BaseResponse<Result>>> getAllMusicalList();
+
+	@GET("play/{index}")
+	Observable<Response<BaseResponse<Result>>> getDettail(@Path("index") String pageNm);
 }
