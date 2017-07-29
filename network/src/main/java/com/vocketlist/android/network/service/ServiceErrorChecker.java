@@ -20,7 +20,9 @@ public final class ServiceErrorChecker<T> implements Observable.Operator<Respons
         mErrorChecker = errorChecker;
     }
 
-    @Override
+
+
+	@Override
     public Subscriber<? super Response<T>> call(final Subscriber<? super Response<T>> subscriber) {
         return new Subscriber<Response<T>>() {
             @Override
