@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -42,7 +41,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/activity_result_circleIv"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
         </LinearLayout>
 
@@ -60,7 +59,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_54"
                 android:textStyle="bold"
-                tools:text="이 사진의 감정 표현은 99.8878%로 행복 입니다."/>
+                tools:text="이 사진의 감정 표현은 99.8878%로 행복 입니다." />
 
 
         </LinearLayout>
@@ -79,7 +78,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_54"
                 android:textStyle="bold"
-                tools:text="이 사진의 감정 표현은 99.8878%로 행복 입니다."/>
+                tools:text="이 사진의 감정 표현은 99.8878%로 행복 입니다." />
 
 
         </LinearLayout>
@@ -91,13 +90,14 @@
             android:orientation="vertical">
 
             <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/activity_result_emotion_tv3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_54"
                 android:textStyle="bold"
-                tools:text="이 사진의 감정 표현은 99.8878%로 행복 입니다."/>
+                tools:text="이 사진의 감정 표현은 99.8878%로 행복 입니다." />
 
 
         </LinearLayout>
@@ -108,15 +108,13 @@
 
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/activity_result_emotion_tv3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_54"
                 android:textStyle="bold"
-                tools:text="원하는 감정이 맞나요?"/>
+                tools:text="원하는 감정이 맞나요?" />
         </LinearLayout>
 
         <LinearLayout
@@ -129,7 +127,7 @@
                 android:id="@+id/activity_result_done_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_keyboard_arrow_down_black_36dp"/>
+                android:background="@drawable/ok_circle" />
 
         </LinearLayout>
 

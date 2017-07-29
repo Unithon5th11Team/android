@@ -164,5 +164,11 @@
     <string name="row_category_detail_title">연극 상세페이지</string>
     <string name="row_category_detail_period">연극 기간</string>
 
-
+    <string name="category_happy">행복</string>
+    <string name="category_sad">슬픔</string>
+    <string name="category_angry">분노</string>
+    <string name="category_confused">혼란</string>
+    <string name="category_disgusted">혐오</string>
+    <string name="category_surprised">놀람</string>
+    <string name="category_calm">고요</string>
 </resources>
