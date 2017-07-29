@@ -6,6 +6,10 @@
     <dimen name="content_margin_bottom">50dp</dimen>
 
     <dimen name="volunteer_category_grid_space">3.3dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="notice_service_size">13sp</dimen>
 
 
 

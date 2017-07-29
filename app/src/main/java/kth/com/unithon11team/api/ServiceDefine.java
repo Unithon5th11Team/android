@@ -21,7 +21,7 @@ public final class ServiceDefine {
 	public static final LazyMockInterceptor mockInterceptor = new LazyMockInterceptor();
 
 
-	private static final String BASE_URL = "https://api.github.com/";
+	private static final String BASE_URL = "http://52.79.54.226:3434/";
 	private static final String OPEN_API_URL = "http://openapi.seoul.go.kr:8088/";
 
 

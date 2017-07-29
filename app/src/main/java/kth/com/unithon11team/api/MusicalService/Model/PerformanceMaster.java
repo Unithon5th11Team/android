@@ -1,7 +1,5 @@
 package kth.com.unithon11team.api.MusicalService.Model;
 
-import android.inputmethodservice.Keyboard;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

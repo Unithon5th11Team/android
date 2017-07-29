@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+
+    <!-- 콘텐츠 -->
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/row_camera_category_iv"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                app:srcCompat="@drawable/image_musical_poster"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/row_camera_category_search_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="2dp"
+                android:background="@drawable/shape_badge_bg"
+                android:gravity="center"
+                android:paddingBottom="2dp"
+                android:paddingEnd="3dp"
+                android:paddingStart="3dp"
+                android:paddingTop="2dp"
+                android:text="현재 예약 가능"
+                android:textColor="@color/md_white"
+                android:textSize="@dimen/font_30"
+                android:textStyle="bold"
+                android:visibility="visible"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/row_camera_category_result_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="2dp"
+                android:background="@drawable/shape_badge_bg"
+                android:gravity="center"
+                android:paddingBottom="2dp"
+                android:paddingEnd="3dp"
+                android:paddingStart="3dp"
+                android:paddingTop="2dp"
+                android:text="asdfasdfsdf"
+                android:textColor="@color/md_white"
+                android:textSize="@dimen/font_30"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/row_camera_brand_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="K쇼핑"
+                    android:textColor="@color/point_E47B75"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/row_camera_goods_name_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="K쇼핑 맥북 에어 11인치 성능 5~8점 / 휴대성 8~10점"
+                    android:textSize="@dimen/font_54"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="모델명 : "/>
+
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/row_camera_model_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="kth"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/row_camera_goods_price_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1,000,000원"
+                    android:textSize="@dimen/font_54"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_9E9E9"/>
+
+</LinearLayout>
