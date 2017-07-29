@@ -36,7 +36,8 @@
     </style>
 
     <!-- 탭레이아웃 -->
-    <style name="TabLayout" parent="TextAppearance.Design.Tab"/>
+    <style name="TabLayout" parent="TextAppearance.Design.Tab" />
+
     <style name="TabLayout.Label">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">@dimen/font_39</item>
@@ -72,5 +73,9 @@
     <style name="DimmedProgressDialog" parent="TransparentDialog">
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+
+    <style name="NoAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="NoAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

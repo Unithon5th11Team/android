@@ -12,10 +12,8 @@
     <dimen name="notice_service_size">13sp</dimen>
 
 
-
     <!-- CI : Gray : inset-->
     <dimen name="ci_gray_inset">150dp</dimen>
-
 
 
     <!-- 폰트 크기 -->
@@ -24,6 +22,7 @@
     <dimen name="font_39">13sp</dimen>
     <dimen name="font_45">15sp</dimen>
     <dimen name="font_54">18sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 
 
 </resources>

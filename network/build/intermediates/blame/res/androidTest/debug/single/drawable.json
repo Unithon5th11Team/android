@@ -8,12 +8,12 @@
         "source": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
     },
     {
-        "merged": "C:\\Users\\User\\StudioProjects\\client\\network\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_tab_indicator_material.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\drawable\\abc_tab_indicator_material.xml"
-    },
-    {
         "merged": "C:\\Users\\User\\StudioProjects\\client\\network\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
         "source": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\StudioProjects\\client\\network\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\drawable\\abc_tab_indicator_material.xml"
     },
     {
         "merged": "C:\\Users\\User\\StudioProjects\\client\\network\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",

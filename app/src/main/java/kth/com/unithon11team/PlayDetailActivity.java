@@ -25,7 +25,8 @@ public class PlayDetailActivity extends DepthActivity {
         initView();
     }
 
+    private void initView() {
+    }
+
 
 }
-private void initView() {
-    }

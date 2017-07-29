@@ -12,12 +12,12 @@
         "source": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\layout\\abc_search_view.xml"
     },
     {
-        "merged": "C:\\Users\\User\\StudioProjects\\client\\network\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
-        "source": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
-    },
-    {
         "merged": "C:\\Users\\User\\StudioProjects\\client\\network\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
         "source": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\StudioProjects\\client\\network\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\User\\.android\\build-cache\\d28845265d312d1c065457a7a5ca59eb28e4b402\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
     {
         "merged": "C:\\Users\\User\\StudioProjects\\client\\network\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",

@@ -73,7 +73,6 @@ public class LoginActivity extends DepthActivity implements GoogleApiClient.Conn
 	private ILoginPresenter loginPresenter;
 	private SweetAlertDialog materialDialog;
 
-
 	private boolean isEmptyEmail;
 	private boolean isEmptyPwd;
 

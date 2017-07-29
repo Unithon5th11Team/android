@@ -7,7 +7,6 @@
     <string name="finish_application">\\‘뒤로\\’ 버튼을 한번 더 누르시면 종료됩니다.</string>
 
 
-
     <string name="bottom_category">카테고리</string>
     <string name="bottom_camera">감정인식</string>
     <string name="bottom_basket">커뮤니티</string>
@@ -41,7 +40,6 @@
     <string name="notice_service_2">\u0020and agree to the\u0020</string>
     <string name="notice_service_3"><b>Terms of Service</b></string>
     <string name="welcome_roler_title">안녕하세요!</string>
-
 
 
     <string name="banner_ad_unit_id">ca-app-pub-6734975683573162/7719479339</string>
@@ -142,6 +140,11 @@
     <string name="sign_up_btn">가입하기</string>
     <string name="dialog_log_out_token">토큰 만료\n다시 로그인 해주세요.</string>
 
+    <!-- play activity-->
+    <string name="empty_play_title"> 연극명 </string>
+    <string name="empty_play_date"> 일시 </string>
+
+
     <!-- edit role -->
     <string name="priority_title">우선 순위 설정</string>
     <string name="priority_title_btn">우선순위를 설정해주세요!</string>
@@ -158,6 +161,7 @@
     <string name="category_horror">호러</string>
     <string name="category_camera">감정 인식</string>
     <string name="empty_fragment_title">글이 없습니다</string>
+    <string name="title_activity_play">PlayActivity</string>
 
 
 </resources>
