@@ -171,4 +171,5 @@
     <string name="category_disgusted">혐오</string>
     <string name="category_surprised">놀람</string>
     <string name="category_calm">고요</string>
+    <string name="recommend_result">현재 당신의 감정은 %s 입니다. \\n 감정에 맞는 연극을 추천해 드릴게요!</string>
 </resources>
