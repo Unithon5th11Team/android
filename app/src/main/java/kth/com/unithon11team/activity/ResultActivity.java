@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatImageView;
@@ -15,6 +16,7 @@ import com.vocketlist.android.roboguice.log.Ln;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 
 import butterknife.BindView;
@@ -47,6 +49,7 @@ public class ResultActivity extends AppCompatActivity {
 
     public static final String REQUEST_IMAGE_FROM_CAMERA = "request_image_from_camera";
     public static final String TAG = "ResultActivity";
+    public static final String TAG_CURRENT_EMOTION = "emotion";
     public static final String REKOGNATION_IMAGE = "rekognation_image";
 
     private String mPriortyType = "happy";
@@ -135,8 +138,36 @@ public class ResultActivity extends AppCompatActivity {
                     @Override
                     public void onNext(Response<BaseResponse<Result>> baseResponseResponse) {
                         musicalList = baseResponseResponse.body().mResult.musicalList;
+                        Bundle args = new Bundle();
+                        args.putSerializable(TAG, (Serializable) musicalList);
+                        args.putString(TAG_CURRENT_EMOTION, mPriortyType);
+                        goToActivity(RecommendActivity.class, args);
+
                     }
                 });
+    }
+
+    /**
+     * 액티비티 호출
+     *
+     * @param cls
+     */
+    private void goToActivity(Class<?> cls) {
+        goToActivity(cls, null);
+    }
+
+
+    /**
+     * 액티비티 호출
+     *
+     * @param cls
+     * @param extras
+     */
+    private void goToActivity(Class<?> cls, @Nullable Bundle extras) {
+        Intent intent = new Intent(this, cls);
+        if (extras != null) intent.putExtras(extras);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
 }

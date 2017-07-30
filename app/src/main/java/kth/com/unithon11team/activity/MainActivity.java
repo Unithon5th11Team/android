@@ -52,6 +52,8 @@ public class MainActivity extends DepthActivity implements NavigationView.OnNavi
 		initToolbar();
 		initBottomNavigation();
 
+		setRootActivity(true);
+
 	}
 
 	private void initBottomNavigation() {
