@@ -91,6 +91,9 @@ public class ResultActivity extends AppCompatActivity {
             emotionTv1.setText(String.format(getString(R.string.emotion_title), data.get(0).confidence, data.get(0).type));
             emotionTv2.setText(String.format(getString(R.string.emotion_title), data.get(1).confidence, data.get(1).type));
             emotionTv3.setText(String.format(getString(R.string.emotion_title), data.get(2).confidence, data.get(2).type));
+        } else {
+            emotionTv1.setText(getString(R.string.empty_emotion_title));
+            emotionTv2.setText(getString(R.string.empty_emotion_again));
         }
     }
 

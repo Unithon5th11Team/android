@@ -1,9 +1,12 @@
 package kth.com.unithon11team.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
+import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -64,9 +67,27 @@ public class DetailActivity extends AppCompatActivity {
 		mDetailTitle.setText(musical.mTitle);
 		mGenre.setText(musical.mGenre);
 		mHostSiteTv.setText(musical.mSiteURL);
+		mHostSiteTv.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Uri uri = Uri.parse(musical.mSiteURL);
+				Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+				startActivity(intent);
+
+			}
+		});
 		mLimitOldTv.setText(musical.mGrade);
 		mManTv.setText(musical.mMembers);
 		mTicketingAddress.setText(musical.mTicketingURL);
+		mTicketingAddress.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Uri uri = Uri.parse(musical.mTicketingURL);
+				Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+				startActivity(intent);
+
+			}
+		});
 		mLocalTv.setText(musical.mLoc);
 		mTimeTv.setText(musical.mTime);
 

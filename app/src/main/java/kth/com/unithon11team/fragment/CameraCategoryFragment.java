@@ -1,7 +1,9 @@
 package kth.com.unithon11team.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -26,11 +28,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.vocketlist.android.roboguice.log.Ln;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,6 +46,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import kth.com.unithon11team.R;
+import kth.com.unithon11team.activity.RecommendActivity;
 import kth.com.unithon11team.activity.ResultActivity;
 import kth.com.unithon11team.api.basemodel.BaseResponse;
 import kth.com.unithon11team.api.basemodel.Result;
@@ -61,6 +67,9 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 	public static final String TAG = "kth.com.nanamare.BasketCategoryFragment";
 	public static final String REKOGNATION_IMAGE = "rekognation_image";
 	public static final String REQUEST_IMAGE_FROM_CAMERA = "request_image_from_camera";
+	public static final int REQUEST_IMAGE_FROM_ALBUM = 999;
+	public static final String SAVE_PATH = "/storage/emulated/0/sample/";
+	public static final String IMAGE_FROM_ALBUM = "image_from_album";
 
 	@BindDimen(R.dimen.volunteer_category_grid_space)
 	protected int space;
@@ -69,6 +78,8 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 	SurfaceView mCameraView;
 	@BindView(R.id.fragment_camera_send_iv)
 	AppCompatImageView mSendDoneIv;
+	@BindView(R.id.fragment_camera_album_iv)
+	AppCompatImageView mAlbumIv;
 	@BindView(R.id.fragment_loading_dialog) LinearLayout mLoadingDialog;
 	@BindView(R.id.intro) protected ImageView mIntroView;
 
@@ -144,6 +155,20 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 		if (category != null) {
 			this.category = (CameraCategoty) category;
 		}
+	}
+
+	@OnClick(R.id.fragment_camera_album_iv)
+	void onAlbumClick() {
+//		loadToPicFromAlbum();
+	}
+
+	private void loadToPicFromAlbum() {
+
+		Intent albumIntent = new Intent();
+		albumIntent.setAction(Intent.ACTION_PICK);
+		albumIntent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+		startActivityForResult(albumIntent, REQUEST_IMAGE_FROM_ALBUM);
+
 	}
 
 
@@ -306,6 +331,8 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 							Bundle args = new Bundle();
 							args.putSerializable(REKOGNATION_IMAGE, (Serializable) recognationImage);
 							args.putString(REQUEST_IMAGE_FROM_CAMERA, getImageUri(getContext(), mBitmap).toString());
+
+
 							goToActivity(ResultActivity.class, args);
 							stopIntro();
 
@@ -362,6 +389,115 @@ public class CameraCategoryFragment extends RecyclerFragment implements SurfaceH
 		if (extras != null) intent.putExtras(extras);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 		startActivity(intent);
+	}
+
+
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+
+		switch (requestCode) {
+
+			case REQUEST_IMAGE_FROM_ALBUM: {
+				if (resultCode == Activity.RESULT_OK) {
+
+					Bitmap bitmap = null;
+
+					try {
+						bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), data.getData());
+					} catch (IOException exception) {
+						Ln.d(TAG, exception);
+					}
+
+					ByteArrayOutputStream stream = new ByteArrayOutputStream();
+					bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+					byte[] byteArray = stream.toByteArray();
+
+
+					mBitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+
+
+					File  file = SaveBitmapToFileCache(mBitmap, Environment.getExternalStorageDirectory().getAbsolutePath()+"/test/");
+					RekognationServiceManager.sendToImage(file.getAbsolutePath())
+							.observeOn(AndroidSchedulers.mainThread())
+							.subscribe(new Subscriber<Response<BaseResponse<Result>>>() {
+								@Override
+								public void onCompleted() {
+
+								}
+
+								@Override
+								public void onError(Throwable e) {
+									Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+									Bundle args = new Bundle();
+									args.putString(REQUEST_IMAGE_FROM_CAMERA, getImageUri(getContext(), mBitmap).toString());
+									goToActivity(ResultActivity.class, args);
+									stopIntro();
+
+								}
+
+								@Override
+								public void onNext(Response<BaseResponse<Result>> baseResponseResponse) {
+									List<RecognationImage> recognationImage = baseResponseResponse.body().mResult.recognationImageList;
+									Bundle args = new Bundle();
+									args.putSerializable(REKOGNATION_IMAGE, (Serializable) recognationImage);
+									args.putString(REQUEST_IMAGE_FROM_CAMERA, getImageUri(getContext(), mBitmap).toString());
+									goToActivity(ResultActivity.class, args);
+									stopIntro();
+
+								}
+							});
+
+
+				}
+				break;
+			}
+
+
+
+		}
+
+
+	}
+
+	private File SaveBitmapToFileCache(Bitmap bitmap, String strFilePath) {
+
+		File fileCacheItem = new File(strFilePath);
+		OutputStream out = null;
+
+		try
+		{
+			fileCacheItem.createNewFile();
+			out = new FileOutputStream(fileCacheItem);
+
+			bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			try
+			{
+				out.close();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		return fileCacheItem;
+	}
+
+	public String getPathFromUri(Uri uri){
+		Cursor cursor = getContext().getContentResolver().query(uri, null, null, null, null );
+		cursor.moveToNext();
+		String path = cursor.getString( cursor.getColumnIndex( "_data" ) );
+		cursor.close();
+
+		return path;
 	}
 
 
